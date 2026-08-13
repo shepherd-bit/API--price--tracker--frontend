@@ -72,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-zinc-900 text-white flex flex-col justify-between">
       <div>
         <Navbar 
           stats={{ tracked: trackedCount, drops: dropsCount, checks: checksCount }}
