@@ -8,7 +8,7 @@ export default function Navbar({
   onOpenModal 
 }) {
   return (
-    <header className="bg-zinc-900/90 backdrop-blur-md border-b border-zinc-700/80 shadow-2xl shadow-black/60 sticky top-0 z-40 px-6 py-4">
+    <header className="bg-zinc-900/90 backdrop-blur-md border-b border-zinc-700/85 shadow-2xl shadow-black/60 sticky top-0 z-40 px-6 py-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Left Section: Brand & Live Status */}
@@ -27,16 +27,19 @@ export default function Navbar({
             </div>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 bg-zinc-950/60 border border-zinc-800 px-3 py-1.5 rounded-full shadow-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-xs font-medium text-emerald-400 uppercase tracking-wide">Live</span>
+          {/* Restored Pulsing Live Status Pill */}
+          <div className="flex items-center gap-2 bg-zinc-950/80 border border-emerald-500/40 px-3.5 py-2 rounded-full shadow-inner">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Live</span>
           </div>
         </div>
 
         {/* Right Section: Stats, Currency, Export, & Add Action */}
         <div className="flex flex-wrap items-center gap-3">
           
-          {/* Global Stats Group */}
           <div className="hidden lg:flex items-center gap-4 bg-zinc-950/70 border border-zinc-800/80 px-4 py-2 rounded-xl text-xs font-medium text-zinc-300 shadow-inner">
             <div className="flex items-center gap-1.5">
               <Activity className="w-4 h-4 text-purple-400" />
@@ -54,17 +57,14 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* CSV Export Button */}
           <button 
             onClick={onExportCsv}
             className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 px-3.5 py-2 rounded-xl text-xs font-semibold shadow-md transition-all active:scale-95 cursor-pointer"
-            title="Export Tracking Log to CSV"
           >
             <Download className="w-4 h-4" />
             <span>CSV</span>
           </button>
 
-          {/* Currency Switcher */}
           <div className="flex items-center bg-zinc-950 border border-zinc-800 p-1 rounded-xl shadow-inner">
             <button 
               onClick={() => onCurrencyChange?.('USD')}
@@ -88,7 +88,6 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Add Product Main Action Button */}
           <button 
             onClick={onOpenModal}
             className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs shadow-lg shadow-purple-600/40 border border-purple-400/30 transition-all active:scale-95 cursor-pointer"
