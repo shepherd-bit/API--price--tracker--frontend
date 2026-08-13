@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import WatchlistGrid from './components/WatchlistGrid';
 import AddProductModal from './components/AddProductModal';
@@ -8,11 +8,35 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [currency, setCurrency] = useState('USD');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [checksCount, setChecksCount] = useState(4);
 
-  // Calculate dynamic stats
+  // 30-Second Real-Time Polling Simulation Loop
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProducts(prevProducts => {
+        if (prevProducts.length === 0) return prevProducts;
+        return prevProducts.map(product => {
+          // Randomly fluctuate price by -2% to +2% for demonstration
+          const fluctuation = (Math.random() * 4 - 2) / 100;
+          const newPrice = Math.max(1, Number((product.price * (1 + fluctuation)).toFixed(2)));
+          const priceDiff = Number((((newPrice - product.originalPrice) / product.originalPrice) * 100).toFixed(1));
+          
+          return {
+            ...product,
+            price: newPrice,
+            priceChange: priceDiff,
+            lastChecked: 'Just now'
+          };
+        });
+      });
+      setChecksCount(prev => prev + Math.floor(Math.random() * 3) + 1);
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const trackedCount = products.length;
   const dropsCount = products.filter(p => p.priceChange < 0).length;
-  const checksCount = trackedCount * 25 + 4; // Simulated checks counter
 
   const handleAddProduct = (newProduct) => {
     setProducts(prev => [newProduct, ...prev]);
@@ -29,6 +53,7 @@ export default function App() {
       }
       return p;
     }));
+    setChecksCount(prev => prev + 1);
   };
 
   const handleExportCsv = () => {
