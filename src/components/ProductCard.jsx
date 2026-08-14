@@ -26,7 +26,7 @@ export default function ProductCard({
 
   const isDrop = priceChange < 0;
   const isGain = priceChange > 0;
-
+  
   const handleDeleteClick = () => {
     setIsDeleting(true);
     setTimeout(() => {
