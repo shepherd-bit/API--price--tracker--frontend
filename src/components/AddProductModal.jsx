@@ -19,7 +19,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 9.99,
       originalPrice: 12.99,
       category: 'Beauty',
-      image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/essence-mascara-lash-princess.jpg',
       currencySymbol: '$',
       priceChange: -23.1
     },
@@ -30,7 +30,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 19.99,
       originalPrice: 24.99,
       category: 'Beauty',
-      image: 'https://images.unsplash.com/photo-1583241800698-e8dd04c502b4?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/eyeshadow-palette-mirror.jpg',
       currencySymbol: '$',
       priceChange: -20.0
     },
@@ -41,7 +41,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 22.30,
       originalPrice: 29.99,
       category: 'Apparel',
-      image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/mens-casual-premium-slim-fit-t-shirts.jpg',
       currencySymbol: '$',
       priceChange: -25.6
     },
@@ -52,7 +52,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 55.99,
       originalPrice: 69.99,
       category: 'Apparel',
-      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/mens-cotton-jacket.jpg',
       currencySymbol: '$',
       priceChange: -20.0
     },
@@ -63,7 +63,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 109.00,
       originalPrice: 129.99,
       category: 'Electronics',
-      image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/SanDisk-SSD-PLUS-1TB-Internal-SSD.webp',
       currencySymbol: '$',
       priceChange: -16.1
     },
@@ -74,7 +74,7 @@ export default function AddProductModal({ isOpen, onClose, onAddProduct }) {
       price: 49.99,
       originalPrice: 59.99,
       category: 'Electronics',
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80',
+      image: './product-modal/wireless-gaming-headset.jpg',
       currencySymbol: '$',
       priceChange: -16.6
     }

@@ -19,7 +19,7 @@ export default function ProductCard({
     currencySymbol = '$',
     category = 'Electronics',
     url = '#',
-    image = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80',
+    image = 'public/product-card/smart-product.PNG',
     lastChecked = 'Just now',
     priceChange = -14.2 // negative means drop
   } = product || {};
